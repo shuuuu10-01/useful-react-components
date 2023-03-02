@@ -1,15 +1,23 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Button } from './Button';
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import Button from "./Button";
 
 export default {
-  title: 'Button',
+  title: "Button",
   component: Button,
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args}>Sample</Button>;
+const Template: ComponentStory<typeof Button> = (args) => (
+  <Button {...args}>Sample</Button>
+);
 
-export const Primary = Template.bind({});
+export const FillButton = Template.bind({});
+FillButton.args = { visual: "fill" };
 
-Primary.args = {
-  primary: true,
-};
+export const OutlineButton = Template.bind({});
+OutlineButton.args = { visual: "outline" };
+
+export const AlertFillButton = Template.bind({});
+AlertFillButton.args = { visual: "alertFill" };
+
+export const AlertOutlineButton = Template.bind({});
+AlertOutlineButton.args = { visual: "alertOutline" };

@@ -1,24 +1,32 @@
-import { ButtonHTMLAttributes, FC, ReactNode } from "react";
+import { FC, ButtonHTMLAttributes } from "react";
+import classNames from "classnames";
+import styles from "./Button.module.css";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  primary?: boolean;
-  size?: "small" | "medium" | "large",
-  children?: ReactNode
+  size?: "small" | "medium" | "large";
+  visual?: "fill" | "outline" | "alertFill" | "alertOutline";
 }
-/**
- * Primary UI component for user interaction
- */
-export const Button:FC<ButtonProps> = ({
-  primary = false,
+
+const Button: FC<ButtonProps> = ({
   size = "medium",
+  visual = "fill",
   children,
+  className,
   ...props
 }) => {
   return (
     <button
+      className={classNames(
+        styles.button,
+        styles[size],
+        styles[visual],
+        className
+      )}
       {...props}
     >
-      { children }
+      {children}
     </button>
   );
 };
+
+export default Button;

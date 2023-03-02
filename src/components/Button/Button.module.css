@@ -1,0 +1,68 @@
+.button {
+  border: 2px solid transparent;
+  
+  background-color: var(--background-white);
+  cursor: pointer;
+}
+
+.small {
+  font-size: 12px;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+.medium {
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.large {
+  font-size: 20px;
+  padding: 0.5rem 3rem;
+  border-radius: 8px;
+}
+
+.fill {
+  background-color: var(--background-blue);
+  color: var(--background-white);
+}
+.fill:hover {
+  opacity: 0.6;
+}
+.fill:active {
+  background-color: var(--background-blue-active);
+}
+
+.outline {
+  border-color: var(--background-blue);
+  color: var(--background-blue);
+}
+.outline:hover {
+  background-color: var(--background-blue-hover);
+}
+.outline:active {
+  opacity: 0.6;
+}
+
+.alertFill {
+  background-color: var(--background-red);
+  color: var(--background-white);
+}
+.alertFill:hover {
+  opacity: 0.6;
+}
+.alertFill:active {
+  opacity: 0.9;
+}
+
+.alertOutline {
+  border-color: var(--background-red);
+  color: var(--background-red);
+}
+.alertOutline:hover {
+  background-color: var(--background-red-hover);
+}
+.alertOutline:active {
+  opacity: 0.6;
+}
