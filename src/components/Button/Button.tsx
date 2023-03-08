@@ -4,7 +4,7 @@ import styles from "./Button.module.css";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "small" | "medium" | "large";
-  visual?: "fill" | "outline" | "alertFill" | "alertOutline";
+  visual?: "primary" | "secondary" | "alert";
 }
 
 const Button: FC<ButtonProps> = ({

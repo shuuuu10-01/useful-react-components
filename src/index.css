@@ -14,8 +14,12 @@ code {
 
 :root {
   --background-blue: #1ea7fd; 
-  --background-blue-hover: #daf0ff;
+  --background-blue-hover1: #0787d7;
+  --background-blue-hover2: #daf0ff;
+  --background-blue-active1: #0075be;
+  --background-blue-active2: #b0e1ff;
   --background-white: #fff;
   --background-red: #fc2d37;
-  --background-red-hover: #f6e9e9;
+  --background-red-hover: #d93535;
+  --background-red-active: #d30d17;
 }

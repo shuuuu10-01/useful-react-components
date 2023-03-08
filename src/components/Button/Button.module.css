@@ -1,8 +1,11 @@
 .button {
   border: 2px solid transparent;
-  
   background-color: var(--background-white);
   cursor: pointer;
+}
+.button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .small {
@@ -23,46 +26,35 @@
   border-radius: 8px;
 }
 
-.fill {
+.primary {
   background-color: var(--background-blue);
   color: var(--background-white);
 }
-.fill:hover {
-  opacity: 0.6;
+.primary:hover {
+  background-color: var(--background-blue-hover1);
 }
-.fill:active {
-  background-color: var(--background-blue-active);
+.primary:active {
+  background-color: var(--background-blue-active1);
 }
 
-.outline {
+.secondary {
   border-color: var(--background-blue);
   color: var(--background-blue);
 }
-.outline:hover {
-  background-color: var(--background-blue-hover);
+.secondary:hover {
+  background-color: var(--background-blue-hover2);
 }
-.outline:active {
-  opacity: 0.6;
+.secondary:active {
+  background-color: var(--background-blue-active2);
 }
 
-.alertFill {
+.alert {
   background-color: var(--background-red);
   color: var(--background-white);
 }
-.alertFill:hover {
-  opacity: 0.6;
-}
-.alertFill:active {
-  opacity: 0.9;
-}
-
-.alertOutline {
-  border-color: var(--background-red);
-  color: var(--background-red);
-}
-.alertOutline:hover {
+.alert:hover {
   background-color: var(--background-red-hover);
 }
-.alertOutline:active {
-  opacity: 0.6;
+.alert:active {
+  background-color: var(--background-red-active);
 }
