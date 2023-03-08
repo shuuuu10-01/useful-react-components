@@ -26,10 +26,10 @@ jobs:
         run: yarn install
 
       - name: Build package
-        run: yarn run build
+        run: yarn build
 
       - name: Build storybook
-        run: yarn run build-storybook
+        run: yarn build-storybook
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
