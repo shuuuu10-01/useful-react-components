@@ -10,14 +10,11 @@ const Template: ComponentStory<typeof Button> = (args) => (
   <Button {...args}>Sample</Button>
 );
 
-export const FillButton = Template.bind({});
-FillButton.args = { visual: "fill" };
+export const PrimaryButton = Template.bind({});
+PrimaryButton.args = { visual: "primary", size: "medium", disabled: false };
 
-export const OutlineButton = Template.bind({});
-OutlineButton.args = { visual: "outline" };
+export const SecondaryButton = Template.bind({});
+SecondaryButton.args = { visual: "secondary", size: "medium", disabled: false };
 
-export const AlertFillButton = Template.bind({});
-AlertFillButton.args = { visual: "alertFill" };
-
-export const AlertOutlineButton = Template.bind({});
-AlertOutlineButton.args = { visual: "alertOutline" };
+export const AlertButton = Template.bind({});
+AlertButton.args = { visual: "alert", size: "medium", disabled: false };
