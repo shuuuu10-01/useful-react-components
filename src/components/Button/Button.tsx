@@ -9,7 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button: FC<ButtonProps> = ({
   size = "medium",
-  visual = "fill",
+  visual = "primary",
   children,
   className,
   ...props
