@@ -2,6 +2,7 @@
   border: 2px solid transparent;
   background-color: var(--background-white);
   cursor: pointer;
+  font-weight: bold;
 }
 .button:disabled {
   opacity: 0.6;
