@@ -1,0 +1,19 @@
+.pageWrapper {
+  padding: 1.5rem;
+}
+
+.title {
+  margin: 0.5rem 0;
+}
+
+.buttonWrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.hasIcon {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
