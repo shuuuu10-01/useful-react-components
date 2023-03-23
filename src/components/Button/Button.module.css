@@ -59,3 +59,16 @@
 .alert:active {
   background-color: var(--background-red-active);
 }
+
+/* storybook用css */
+.buttonWrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.hasIcon {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
