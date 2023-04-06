@@ -1,0 +1,40 @@
+.inputText {
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid var(--border-gray);
+  outline: none;
+  width: 100%;
+  min-width: 100px;
+}
+
+.inputText:focus {
+  border-color: var(--background-blue);
+}
+
+.error,
+.error:focus {
+  border-color: var(--background-red);
+}
+
+.passwordMask {
+  padding-right: 40px;
+}
+
+.maskInput {
+  position: relative;
+}
+
+.maskButton {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: var(--background-gray);
+  border: none;
+  background: none;
+  cursor: pointer;
+}
