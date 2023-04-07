@@ -15,7 +15,7 @@ const InputText = forwardRef<HTMLInputElement, TextInputProps>(
   ) => {
     const [unmasking, setUnmasking] = useState(false);
 
-    const content = (
+    const inputText = (
       <input
         ref={ref}
         className={classNames(
@@ -32,7 +32,7 @@ const InputText = forwardRef<HTMLInputElement, TextInputProps>(
     if (hasPasswordMask) {
       return (
         <div className={styles.maskInput}>
-          {content}
+          {inputText}
           <button
             className={styles.maskButton}
             onClick={() => setUnmasking(!unmasking)}
@@ -43,7 +43,7 @@ const InputText = forwardRef<HTMLInputElement, TextInputProps>(
       );
     }
 
-    return content;
+    return inputText;
   }
 );
 
