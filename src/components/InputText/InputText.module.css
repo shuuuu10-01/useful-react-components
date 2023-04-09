@@ -38,3 +38,23 @@
   background: none;
   cursor: pointer;
 }
+
+/* storybook用css */
+.form {
+  width: 300px;
+  padding: 1rem;
+  border: 1px solid var(--border-gray);
+  border-radius: 4px;
+}
+
+.inputWrapper {
+  margin-bottom: 1rem;
+}
+
+.buttonWrapper {
+  text-align: center;
+}
+
+.inputLabel {
+  font-size: 15px;
+}
