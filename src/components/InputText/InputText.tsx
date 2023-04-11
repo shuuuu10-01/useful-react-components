@@ -3,12 +3,12 @@ import classNames from "classnames";
 import styles from "./InputText.module.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
   hasError?: boolean;
   hasPasswordMask?: boolean;
 }
 
-const InputText = forwardRef<HTMLInputElement, TextInputProps>(
+const InputText = forwardRef<HTMLInputElement, InputTextProps>(
   (
     { hasError = false, hasPasswordMask = false, className, type, ...props },
     ref
@@ -35,7 +35,8 @@ const InputText = forwardRef<HTMLInputElement, TextInputProps>(
           {inputText}
           <button
             className={styles.maskButton}
-            onClick={() => setUnmasking(!unmasking)}
+            type="button"
+            onClick={() => setUnmasking((s) => !s)}
           >
             {unmasking ? <FaEye /> : <FaEyeSlash />}
           </button>
