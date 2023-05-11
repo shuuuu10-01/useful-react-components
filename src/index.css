@@ -23,5 +23,9 @@ code {
   --background-red-hover: #d93535;
   --background-red-active: #d30d17;
   --background-gray: #33333399;
+  --background-gray2: #78787899;
   --border-gray: #0000001a;
+  --font-white: #fff;
+  --font-black: #000;
+  --font-gray: #33333399;
 }

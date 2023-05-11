@@ -1,0 +1,29 @@
+.header {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  gap: 4px;
+  box-shadow: var(--background-gray) 0 -1px 0 0 inset;
+}
+
+.column {
+  width: fit-content;
+}
+
+.button {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 0.5rem 1.5rem;
+  color: var(--font-gray);
+  font-weight: bold;
+}
+
+.active {
+  border-bottom: 3px solid var(--background-blue);
+  background-color: var(--background-white);
+  color: var(--background-blue);
+}
