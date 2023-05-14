@@ -23,13 +23,11 @@ type TabHeaderState = {
 
 type TabContextState = {
   activeKey: string | number;
-  changeActiveKey: (key: string | number) => void;
   addItem: (tabKey: string | number, label: ReactNode) => void;
 };
 
 export const TabContext = createContext<TabContextState>({
   activeKey: "",
-  changeActiveKey: () => {},
   addItem: () => {},
 });
 
@@ -49,7 +47,6 @@ const Tab: FC<TabProps> = ({ defaultKey, children, className }) => {
   const tabState = useMemo<TabContextState>(() => {
     return {
       activeKey: activeKey,
-      changeActiveKey: (key: string | number) => setActiveKey(key),
       addItem: addHeader,
     };
   }, [activeKey, addHeader]);
@@ -73,7 +70,7 @@ const Tab: FC<TabProps> = ({ defaultKey, children, className }) => {
           );
         })}
       </ul>
-      <div className={className}>{children}</div>
+      <div className={classNames(styles.tabBody, className)}>{children}</div>
     </TabContext.Provider>
   );
 };

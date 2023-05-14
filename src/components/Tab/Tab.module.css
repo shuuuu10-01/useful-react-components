@@ -28,6 +28,10 @@
   color: var(--background-blue);
 }
 
+.tabBody {
+  padding: 0.25rem;
+}
+
 /* storybook用css */
 .hasIcon {
   display: flex;
