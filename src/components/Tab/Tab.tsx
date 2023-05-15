@@ -6,6 +6,8 @@ import {
   useMemo,
   useState,
   useCallback,
+  useContext,
+  useLayoutEffect,
 } from "react";
 import classNames from "classnames";
 import styles from "./Tab.module.css";
@@ -26,16 +28,14 @@ type TabContextState = {
   addItem: (tabKey: string | number, label: ReactNode) => void;
 };
 
-export const TabContext = createContext<TabContextState>({
+const TabContext = createContext<TabContextState>({
   activeKey: "",
   addItem: () => {},
 });
 
-const Tab: FC<TabProps> = ({ defaultKey, children, className }) => {
+export const Tab: FC<TabProps> = ({ defaultKey, children, className }) => {
   const [activeKey, setActiveKey] = useState(defaultKey);
-
   const [headers, setHeaders] = useState<TabHeaderState[]>([]);
-
   const addHeader = useCallback(
     (tabKey: string | number, label: ReactNode) => {
       if (headers.find((t) => t.tabKey === tabKey)) return;
@@ -43,7 +43,6 @@ const Tab: FC<TabProps> = ({ defaultKey, children, className }) => {
     },
     [headers]
   );
-
   const tabState = useMemo<TabContextState>(() => {
     return {
       activeKey: activeKey,
@@ -53,7 +52,7 @@ const Tab: FC<TabProps> = ({ defaultKey, children, className }) => {
 
   return (
     <TabContext.Provider value={tabState}>
-      <ul className={styles.header}>
+      <ul className={classNames(styles.header, className)}>
         {headers.map(({ tabKey, label }) => {
           return (
             <li className={styles.column} key={tabKey}>
@@ -70,9 +69,34 @@ const Tab: FC<TabProps> = ({ defaultKey, children, className }) => {
           );
         })}
       </ul>
-      <div className={classNames(styles.tabBody, className)}>{children}</div>
+      {children}
     </TabContext.Provider>
   );
 };
 
-export default Tab;
+type TabItemProps = {
+  tabKey: string | number;
+  label: ReactNode;
+  children: ReactNode;
+  className?: string;
+};
+
+export const TabItem: FC<TabItemProps> = ({
+  tabKey,
+  label,
+  children,
+  className,
+}) => {
+  const { activeKey, addItem } = useContext(TabContext);
+  useLayoutEffect(() => {
+    addItem(tabKey, label);
+  });
+
+  return (
+    <>
+      {activeKey === tabKey ? (
+        <div className={classNames(styles.tabBody, className)}>{children}</div>
+      ) : null}
+    </>
+  );
+};

@@ -1,6 +1,5 @@
 import { ComponentMeta } from "@storybook/react";
-import Tab from "./Tab";
-import TabItem from "./TabItem";
+import { Tab, TabItem } from "./Tab";
 import { FaInfo } from "react-icons/fa";
 import styles from "./Tab.module.css";
 
