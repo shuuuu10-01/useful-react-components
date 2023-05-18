@@ -1,7 +1,6 @@
 import {
   createContext,
   FC,
-  ReactElement,
   ReactNode,
   useMemo,
   useState,
@@ -12,20 +11,23 @@ import {
 import classNames from "classnames";
 import styles from "./Tab.module.css";
 
+type TabKey = string | number;
+type TabLabel = string | number | JSX.Element;
+
 type TabProps = {
-  defaultKey: string | number;
-  children: ReactElement[] | ReactElement;
+  defaultKey: TabKey;
+  children: ReactNode;
   className?: string;
 };
 
 type TabHeaderState = {
-  tabKey: string | number;
-  label: ReactNode;
+  tabKey: TabKey;
+  label: TabLabel;
 };
 
 type TabContextState = {
-  activeKey: string | number;
-  addItem: (tabKey: string | number, label: ReactNode) => void;
+  activeKey: TabKey;
+  addItem: (tabKey: TabKey, label: TabLabel) => void;
 };
 
 const TabContext = createContext<TabContextState>({
@@ -37,7 +39,7 @@ export const Tab: FC<TabProps> = ({ defaultKey, children, className }) => {
   const [activeKey, setActiveKey] = useState(defaultKey);
   const [headers, setHeaders] = useState<TabHeaderState[]>([]);
   const addHeader = useCallback(
-    (tabKey: string | number, label: ReactNode) => {
+    (tabKey: TabKey, label: TabLabel) => {
       if (headers.find((t) => t.tabKey === tabKey)) return;
       setHeaders((tabs) => [...tabs, { tabKey, label }]);
     },
@@ -75,8 +77,8 @@ export const Tab: FC<TabProps> = ({ defaultKey, children, className }) => {
 };
 
 type TabItemProps = {
-  tabKey: string | number;
-  label: ReactNode;
+  tabKey: TabKey;
+  label: TabLabel;
   children: ReactNode;
   className?: string;
 };
