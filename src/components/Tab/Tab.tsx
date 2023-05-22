@@ -4,9 +4,8 @@ import {
   ReactNode,
   useMemo,
   useState,
-  useCallback,
   useContext,
-  useLayoutEffect,
+  ReactElement,
 } from "react";
 import classNames from "classnames";
 import styles from "./Tab.module.css";
@@ -16,44 +15,46 @@ type TabLabel = string | number | JSX.Element;
 
 type TabProps = {
   defaultKey: TabKey;
-  children: ReactNode;
+  children: ReactElement<TabItemProps> | ReactElement<TabItemProps>[];
   className?: string;
 };
 
-type TabHeaderState = {
+type TabHeader = {
   tabKey: TabKey;
   label: TabLabel;
 };
 
 type TabContextState = {
   activeKey: TabKey;
-  addItem: (tabKey: TabKey, label: TabLabel) => void;
 };
 
 const TabContext = createContext<TabContextState>({
   activeKey: "",
-  addItem: () => {},
 });
 
 export const Tab: FC<TabProps> = ({ defaultKey, children, className }) => {
   const [activeKey, setActiveKey] = useState(defaultKey);
-  const [headers, setHeaders] = useState<TabHeaderState[]>([]);
-  const addHeader = useCallback(
-    (tabKey: TabKey, label: TabLabel) => {
-      if (headers.find((t) => t.tabKey === tabKey)) return;
-      setHeaders((tabs) => [...tabs, { tabKey, label }]);
-    },
-    [headers]
-  );
-  const tabState = useMemo<TabContextState>(() => {
-    return {
-      activeKey: activeKey,
-      addItem: addHeader,
-    };
-  }, [activeKey, addHeader]);
+  const headers = useMemo<TabHeader[]>(() => {
+    const headerArray: TabHeader[] = [];
+    if (Array.isArray(children)) {
+      children.forEach((c) => {
+        if (c.type !== TabItem) return;
+        headerArray.push({
+          tabKey: c.props.tabKey,
+          label: c.props.label,
+        });
+      });
+    } else if (children.type === TabItem) {
+      headerArray.push({
+        tabKey: children.props.tabKey,
+        label: children.props.label,
+      });
+    }
+    return headerArray;
+  }, [children]);
 
   return (
-    <TabContext.Provider value={tabState}>
+    <TabContext.Provider value={{ activeKey: activeKey }}>
       <ul className={classNames(styles.header, className)}>
         {headers.map(({ tabKey, label }) => {
           return (
@@ -83,22 +84,10 @@ type TabItemProps = {
   className?: string;
 };
 
-export const TabItem: FC<TabItemProps> = ({
-  tabKey,
-  label,
-  children,
-  className,
-}) => {
-  const { activeKey, addItem } = useContext(TabContext);
-  useLayoutEffect(() => {
-    addItem(tabKey, label);
-  });
+export const TabItem: FC<TabItemProps> = ({ tabKey, children, className }) => {
+  const { activeKey } = useContext(TabContext);
 
-  return (
-    <>
-      {activeKey === tabKey ? (
-        <div className={classNames(styles.tabBody, className)}>{children}</div>
-      ) : null}
-    </>
-  );
+  return activeKey === tabKey ? (
+    <div className={classNames(styles.tabBody, className)}>{children}</div>
+  ) : null;
 };
