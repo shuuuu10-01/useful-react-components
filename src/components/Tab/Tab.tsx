@@ -50,11 +50,12 @@ export const Tab: FC<TabProps> = ({ defaultKey, children, className }) => {
         label: children.props.label,
       });
     }
+    if (headerArray.length === 0) throw Error("TabItemを利用してください");
     return headerArray;
   }, [children]);
 
   return (
-    <TabContext.Provider value={{ activeKey: activeKey }}>
+    <TabContext.Provider value={{ activeKey }}>
       <ul className={classNames(styles.header, className)}>
         {headers.map(({ tabKey, label }) => {
           return (
