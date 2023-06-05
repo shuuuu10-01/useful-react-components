@@ -38,7 +38,7 @@ export const Tab: FC<TabProps> = ({ defaultKey, children, className }) => {
     const headerArray: TabHeader[] = [];
     if (Array.isArray(children)) {
       children.forEach((c) => {
-        if (c.type !== TabItem) return;
+        if (c.type !== TabItem) throw Error("TabItemを利用してください");
         headerArray.push({
           tabKey: c.props.tabKey,
           label: c.props.label,
@@ -49,8 +49,9 @@ export const Tab: FC<TabProps> = ({ defaultKey, children, className }) => {
         tabKey: children.props.tabKey,
         label: children.props.label,
       });
+    } else {
+      throw Error("TabItemを利用してください");
     }
-    if (headerArray.length === 0) throw Error("TabItemを利用してください");
     return headerArray;
   }, [children]);
 
