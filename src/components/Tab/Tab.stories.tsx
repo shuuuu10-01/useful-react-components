@@ -64,3 +64,30 @@ export const Icon = () => {
     </div>
   );
 };
+
+export const Gallery = () => {
+  const headerLabel = (label: string) => {
+    return (
+      <div className={styles.hasIcon}>
+        <FaInfo />
+        {label}
+      </div>
+    );
+  };
+
+  return (
+    <div style={{ width: "500px" }}>
+      <Tab defaultKey="React">
+        <TabItem tabKey="React" label="React">
+          this is initial tab.
+        </TabItem>
+        <TabItem tabKey="Useful" label="Useful">
+          2nd content
+        </TabItem>
+        <TabItem tabKey="Components" label={headerLabel("Components")}>
+          3rd content
+        </TabItem>
+      </Tab>
+    </div>
+  );
+};
