@@ -1,32 +1,40 @@
-import { ComponentMeta } from "@storybook/react";
 import { Tab, TabItem } from "./Tab";
 import { FaInfo } from "react-icons/fa";
 import styles from "./Tab.module.css";
+import { useState } from "react";
+import Button from "../Button/Button";
 
 export default {
   title: "Tab",
-} as ComponentMeta<typeof Tab>;
+};
 
-export const Text = () => {
+export const Sample = () => {
   return (
-    <div style={{ width: "500px" }}>
-      <Tab defaultKey="a">
-        <TabItem tabKey="a" label="a">
-          aaaaaaaaaa
-        </TabItem>
-        <TabItem tabKey="b" label="b">
-          bbbbbbbbbb
-        </TabItem>
-      </Tab>
-    </div>
+    <Tab defaultKey="item1">
+      <TabItem tabKey="item1" label="アイテム1">
+        アイテム1のタブ
+      </TabItem>
+      <TabItem tabKey="item2" label="アイテム2">
+        アイテム2のタブ
+      </TabItem>
+    </Tab>
   );
 };
 
 export const Number = () => {
+  const [array, setArray] = useState([1, 2, 3, 4, 5]);
+
+  const addArray = () => {
+    setArray((prev) => {
+      if (prev.length >= 8) return prev;
+      return [...prev, prev.length + 1];
+    });
+  };
   return (
     <div style={{ width: "500px" }}>
+      <p>タブを動的に追加するパターン（8まで追加可能）</p>
       <Tab defaultKey={1}>
-        {[1, 2, 3, 4, 5].map((num) => {
+        {array.map((num) => {
           return (
             <TabItem tabKey={num} label={num} key={num}>
               {num}
@@ -34,6 +42,7 @@ export const Number = () => {
           );
         })}
       </Tab>
+      <Button onClick={addArray}>+ add</Button>
     </div>
   );
 };
