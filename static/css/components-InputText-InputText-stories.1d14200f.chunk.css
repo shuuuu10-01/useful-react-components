@@ -1,0 +1,140 @@
+.Button_button__wiIYs {
+  border: 2px solid transparent;
+  background-color: var(--background-white);
+  cursor: pointer;
+  font-weight: bold;
+}
+.Button_button__wiIYs:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.Button_small__QdkfY {
+  font-size: 12px;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+.Button_medium__wW44E {
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.Button_large__cwKfr {
+  font-size: 20px;
+  padding: 0.5rem 3rem;
+  border-radius: 8px;
+}
+
+.Button_primary__XYgy- {
+  background-color: var(--background-blue);
+  color: var(--background-white);
+}
+.Button_primary__XYgy-:hover {
+  background-color: var(--background-blue-hover1);
+}
+.Button_primary__XYgy-:active {
+  background-color: var(--background-blue-active1);
+}
+
+.Button_secondary__QwN49 {
+  border-color: var(--background-blue);
+  color: var(--background-blue);
+}
+.Button_secondary__QwN49:hover {
+  background-color: var(--background-blue-hover2);
+}
+.Button_secondary__QwN49:active {
+  background-color: var(--background-blue-active2);
+}
+
+.Button_alert__R665X {
+  background-color: var(--background-red);
+  color: var(--background-white);
+}
+.Button_alert__R665X:hover {
+  background-color: var(--background-red-hover);
+}
+.Button_alert__R665X:active {
+  background-color: var(--background-red-active);
+}
+
+/* storybook用css */
+.Button_buttonWrapper__B1mQY {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.Button_hasIcon__H6w7J {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.InputText_inputText__pP0Ax {
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid var(--border-gray);
+  outline: none;
+  width: 100%;
+  min-width: 100px;
+}
+
+.InputText_inputText__pP0Ax:focus {
+  border-color: var(--background-blue);
+}
+
+.InputText_error__sop9i,
+.InputText_error__sop9i:focus {
+  border-color: var(--background-red);
+}
+
+.InputText_passwordMask__GjbcR {
+  padding-right: 40px;
+}
+
+.InputText_maskInput__C0sTJ {
+  position: relative;
+}
+
+.InputText_maskButton__NDdmt {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: var(--background-gray);
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* storybook用css */
+.InputText_form__r56fC {
+  width: 300px;
+  padding: 1rem;
+  border: 1px solid var(--border-gray);
+  border-radius: 4px;
+}
+
+.InputText_inputWrapper__kxTg0 {
+  margin-bottom: 1rem;
+}
+
+.InputText_buttonWrapper__P8\+l9 {
+  text-align: center;
+}
+
+.InputText_inputLabel__\+iSQJ {
+  font-size: 15px;
+}
+
+
+/*# sourceMappingURL=components-InputText-InputText-stories.1d14200f.chunk.css.map*/
