@@ -19,12 +19,6 @@ const Dropdown: FC<DropdownProps> = ({ label, children, menuClassName }) => {
   const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
     const relatedTarget = event.relatedTarget as HTMLElement;
 
-    console.log(
-      relatedTarget,
-      dropdownRef.current?.contains(relatedTarget),
-      event
-    );
-
     if (relatedTarget && dropdownRef.current?.contains(relatedTarget)) {
       // 関連するターゲットがプルダウン内の要素なら何もしない
       return;
