@@ -48,4 +48,6 @@ const InputText = forwardRef<HTMLInputElement, InputTextProps>(
   }
 );
 
+// ESLint:Component definition is missing display name の対処
+InputText.displayName = "InputText";
 export default InputText;
