@@ -1,20 +1,32 @@
-import { FC, FocusEvent, ReactNode, useRef, useState } from "react";
+import {
+  Dispatch,
+  FocusEvent,
+  SetStateAction,
+  createContext,
+  useContext,
+  useRef,
+  useState,
+  ComponentPropsWithoutRef,
+} from "react";
 import classNames from "classnames";
 import styles from "./Dropdown.module.css";
 
-interface DropdownProps {
-  label: string | number | JSX.Element;
-  children: ReactNode;
-  menuClassName?: string;
-}
+const DropdownContext = createContext<{
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+}>({
+  isOpen: false,
+  setIsOpen: () => {},
+});
 
-const Dropdown: FC<DropdownProps> = ({ label, children, menuClassName }) => {
-  const dropdownRef = useRef<HTMLDivElement>(null);
+const Dropdown = ({
+  children,
+  className,
+  ...props
+}: ComponentPropsWithoutRef<"div">) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleToggle = () => {
-    setIsOpen((prev) => !prev);
-  };
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
     const relatedTarget = event.relatedTarget as HTMLElement;
@@ -27,20 +39,56 @@ const Dropdown: FC<DropdownProps> = ({ label, children, menuClassName }) => {
   };
 
   return (
-    <div className={styles.dropdown} onBlur={handleBlur} ref={dropdownRef}>
-      <button className={styles.button} onClick={handleToggle}>
-        {label}
-      </button>
-      {isOpen && (
-        <div
-          className={classNames(styles.dropdownMenu, menuClassName)}
-          tabIndex={1}
-        >
-          {children}
-        </div>
-      )}
+    <DropdownContext.Provider value={{ isOpen, setIsOpen }}>
+      <div
+        ref={dropdownRef}
+        className={classNames(styles.dropdown, className)}
+        tabIndex={0}
+        onBlur={handleBlur}
+        {...props}
+      >
+        {children}
+      </div>
+    </DropdownContext.Provider>
+  );
+};
+
+const Toggle = ({
+  children,
+  className,
+  ...props
+}: ComponentPropsWithoutRef<"div">) => {
+  const { isOpen, setIsOpen } = useContext(DropdownContext);
+  return (
+    <div
+      className={classNames(styles.toggle, className)}
+      {...props}
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      {children}
     </div>
   );
 };
+
+const Body = ({
+  children,
+  className,
+  ...props
+}: ComponentPropsWithoutRef<"div">) => {
+  const { isOpen } = useContext(DropdownContext);
+  if (!children) return null;
+  return (
+    <>
+      {isOpen ? (
+        <div className={classNames(styles.menu, className)} {...props}>
+          {children}
+        </div>
+      ) : null}
+    </>
+  );
+};
+
+Dropdown.Toggle = Toggle;
+Dropdown.Body = Body;
 
 export default Dropdown;
