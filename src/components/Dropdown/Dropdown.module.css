@@ -1,19 +1,17 @@
 .dropdown {
   position: relative;
-  width: 100%;
+  width: fit-content;
   padding: 0;
   margin: 0;
 }
 
-.button {
+.toggle {
+  cursor: pointer;
   width: fit-content;
   background-color: var(--font-white);
-  border: none;
-  padding: 0.5rem 1.5rem;
-  cursor: pointer;
 }
 
-.dropdownMenu {
+.menu {
   position: absolute;
   width: fit-content;
   border-radius: 4px;
