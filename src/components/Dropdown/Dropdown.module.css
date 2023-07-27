@@ -19,6 +19,14 @@
   padding: 10px 20px;
 }
 
+.upper {
+  bottom: calc(100% + 0.5rem);
+}
+
+.lower {
+  top: calc(100% + 0.5rem);
+}
+
 /* storybook用css */
 .items {
   width: 100px;

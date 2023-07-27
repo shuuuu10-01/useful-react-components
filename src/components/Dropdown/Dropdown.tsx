@@ -10,13 +10,16 @@ import {
 } from "react";
 import classNames from "classnames";
 import styles from "./Dropdown.module.css";
+import { useElementPosition } from "../../utils/useElementPosition";
 
 const DropdownContext = createContext<{
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
+  isInUpperHalf: boolean;
 }>({
   isOpen: false,
   setIsOpen: () => {},
+  isInUpperHalf: false,
 });
 
 const Dropdown = ({
@@ -27,6 +30,7 @@ const Dropdown = ({
   const [isOpen, setIsOpen] = useState(false);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { isInUpperHalf } = useElementPosition<HTMLDivElement>(dropdownRef);
 
   const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
     const relatedTarget = event.relatedTarget as HTMLElement;
@@ -39,7 +43,7 @@ const Dropdown = ({
   };
 
   return (
-    <DropdownContext.Provider value={{ isOpen, setIsOpen }}>
+    <DropdownContext.Provider value={{ isOpen, setIsOpen, isInUpperHalf }}>
       <div
         ref={dropdownRef}
         className={classNames(styles.dropdown, className)}
@@ -75,12 +79,19 @@ const Body = ({
   className,
   ...props
 }: ComponentPropsWithoutRef<"div">) => {
-  const { isOpen } = useContext(DropdownContext);
+  const { isOpen, isInUpperHalf } = useContext(DropdownContext);
   if (!children) return null;
   return (
     <>
       {isOpen ? (
-        <div className={classNames(styles.menu, className)} {...props}>
+        <div
+          className={classNames(
+            styles.menu,
+            isInUpperHalf ? styles.lower : styles.upper,
+            className
+          )}
+          {...props}
+        >
           {children}
         </div>
       ) : null}
