@@ -1,4 +1,5 @@
 import Dropdown from "./Dropdown";
+import styles from "./Dropdown.module.css";
 
 export default {
   title: "Dropdown",
@@ -7,11 +8,14 @@ export default {
 export const Sample = () => {
   return (
     <div style={{ width: "500px", height: "100px" }}>
-      <Dropdown label="dropdown">
-        <ul>
-          <li>sample</li>
-          <li>dropdown</li>
-        </ul>
+      <Dropdown>
+        <Dropdown.Toggle>toggle</Dropdown.Toggle>
+        <Dropdown.Body>
+          <ul className={styles.items}>
+            <li>first item</li>
+            <li>second item</li>
+          </ul>
+        </Dropdown.Body>
       </Dropdown>
     </div>
   );

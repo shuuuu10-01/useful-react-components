@@ -18,3 +18,8 @@
   box-shadow: var(--border-gray) 0 1px 3px 0;
   padding: 10px 20px;
 }
+
+/* storybook用css */
+.items {
+  width: 100px;
+}
