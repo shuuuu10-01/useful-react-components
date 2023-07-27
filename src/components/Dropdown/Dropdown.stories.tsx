@@ -7,7 +7,7 @@ export default {
 
 export const Sample = () => {
   return (
-    <div style={{ width: "500px", height: "100px" }}>
+    <div style={{ width: "500px", height: "100px", marginTop: "100px" }}>
       <Dropdown>
         <Dropdown.Toggle>toggle</Dropdown.Toggle>
         <Dropdown.Body>
