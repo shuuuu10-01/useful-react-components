@@ -5,7 +5,6 @@ import { useState, useEffect, useCallback, RefObject } from "react";
  *
  * @template T - DOM要素の型
  * @param {RefObject<T>} elementRef - トラックするDOM要素
- * @returns {{ isInUpperHalf: boolean, isInLowerHalf: boolean }}
  */
 export const useElementPosition = <T extends HTMLElement>(
   elementRef: RefObject<T>
