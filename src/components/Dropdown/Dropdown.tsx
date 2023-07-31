@@ -81,7 +81,6 @@ const Body = ({
   ...props
 }: ComponentPropsWithoutRef<"div">) => {
   const { isOpen, isInUpperHalf } = useContext(DropdownContext);
-  if (!children) return null;
   return (
     <>
       {isOpen ? (
