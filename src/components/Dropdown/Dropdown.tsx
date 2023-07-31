@@ -11,6 +11,7 @@ import {
 import classNames from "classnames";
 import styles from "./Dropdown.module.css";
 import { useElementPosition } from "../../utils/useElementPosition";
+import Button from "../Button/Button";
 
 const DropdownContext = createContext<{
   isOpen: boolean;
@@ -57,20 +58,20 @@ const Dropdown = ({
   );
 };
 
-const Toggle = ({
+const ToggleButton = ({
   children,
   className,
   ...props
-}: ComponentPropsWithoutRef<"div">) => {
+}: ComponentPropsWithoutRef<typeof Button>) => {
   const { isOpen, setIsOpen } = useContext(DropdownContext);
   return (
-    <div
+    <Button
       className={classNames(styles.toggle, className)}
       {...props}
       onClick={() => setIsOpen(!isOpen)}
     >
       {children}
-    </div>
+    </Button>
   );
 };
 
@@ -99,7 +100,7 @@ const Body = ({
   );
 };
 
-Dropdown.Toggle = Toggle;
+Dropdown.ToggleButton = ToggleButton;
 Dropdown.Body = Body;
 
 export default Dropdown;

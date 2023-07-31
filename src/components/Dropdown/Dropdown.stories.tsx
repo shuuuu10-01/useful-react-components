@@ -9,7 +9,7 @@ export const Sample = () => {
   return (
     <div style={{ width: "500px", height: "100px" }}>
       <Dropdown>
-        <Dropdown.Toggle>toggle</Dropdown.Toggle>
+        <Dropdown.ToggleButton>toggle</Dropdown.ToggleButton>
         <Dropdown.Body>
           <ul className={styles.items}>
             <li>first item</li>
@@ -36,7 +36,7 @@ export const Gallery = () => {
         }}
       >
         <Dropdown>
-          <Dropdown.Toggle>トグル</Dropdown.Toggle>
+          <Dropdown.ToggleButton>トグル</Dropdown.ToggleButton>
           <Dropdown.Body>
             <ul className={styles.items}>
               <li>1つ目のアイテム</li>
