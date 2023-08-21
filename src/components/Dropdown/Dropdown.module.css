@@ -1,0 +1,33 @@
+.dropdown {
+  position: relative;
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+}
+
+.toggle {
+  cursor: pointer;
+  width: fit-content;
+  background-color: var(--font-white);
+}
+
+.menu {
+  position: absolute;
+  width: fit-content;
+  border-radius: 4px;
+  box-shadow: var(--border-gray) 0 1px 3px 0;
+  padding: 10px 20px;
+}
+
+.upper {
+  bottom: calc(100% + 0.5rem);
+}
+
+.lower {
+  top: calc(100% + 0.5rem);
+}
+
+/* storybook用css */
+.items {
+  width: 150px;
+}
