@@ -51,13 +51,12 @@ module.exports = {
         alphabetize: { order: "asc", caseInsensitive: true },
         pathGroups: [
           // ここに書いた順序で間に1行空行をあけつつ整頓される
-          { pattern: "src/types/**", group: "internal", position: "before" },
+          { pattern: "src/utils/**", group: "internal", position: "before" },
           {
-            pattern: "src/repositories/**",
+            pattern: "src/components/**",
             group: "internal",
             position: "before",
           },
-          // TODO：ここはディレクトリ構成が決まり次第設定
           // styles
           // 最後尾にしたいのでgroupをindex扱いにする
           { pattern: "./**.module.css", group: "index", position: "before" },
