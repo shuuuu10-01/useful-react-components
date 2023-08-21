@@ -10,15 +10,30 @@ export default {
 };
 
 export const PrimaryButton = {
-  args: { visual: "primary", size: "medium", disabled: false },
+  args: {
+    visual: "primary",
+    size: "medium",
+    disabled: false,
+    children: "Sample",
+  },
 };
 
 export const SecondaryButton = {
-  args: { visual: "secondary", size: "medium", disabled: false },
+  args: {
+    visual: "secondary",
+    size: "medium",
+    disabled: false,
+    children: "Sample",
+  },
 };
 
 export const AlertButton = {
-  args: { visual: "alert", size: "medium", disabled: false },
+  args: {
+    visual: "alert",
+    size: "medium",
+    disabled: false,
+    children: "Sample",
+  },
 };
 
 export const Gallery = () => {
