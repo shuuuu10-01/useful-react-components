@@ -1,5 +1,5 @@
 import { FaSistrix, FaInfo, FaTrash } from "react-icons/fa";
-import Button from "src/components/Button/Button";
+import Button from "src/components/Button";
 
 import styles from "./Button.module.css";
 

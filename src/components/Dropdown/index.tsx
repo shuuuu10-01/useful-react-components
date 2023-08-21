@@ -9,7 +9,7 @@ import {
   useState,
   ComponentPropsWithoutRef,
 } from "react";
-import Button from "src/components/Button/Button";
+import Button from "src/components/Button";
 import { useElementPosition } from "src/utils/useElementPosition";
 
 import styles from "./Dropdown.module.css";

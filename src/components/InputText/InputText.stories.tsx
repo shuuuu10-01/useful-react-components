@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import Button from "src/components/Button/Button";
-import InputText from "src/components/InputText/InputText";
+import Button from "src/components/Button";
+import InputText from "src/components/InputText";
 
 import styles from "./InputText.module.css";
 
