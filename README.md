@@ -1,16 +1,19 @@
-# Getting Started with Create React App
+## 現場で使えるReactコンポーネント
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+このリポジトリは私がZennに投稿している、「現場で使えるReactコンポーネント」内で使うコンポーネントをまとめたものです。
+第一弾の記事は[こちら](https://zenn.dev/u_10/articles/8c3cda00a701e9)
 
-## Available Scripts
+**開発環境**
+||version|
+|:--|:--|
+|node|18.14.2|
+|react|18.2.0|
 
-In the project directory, you can run:
+**環境構築**
+``` shell
+$ yarn install
 
-### `yarn start`
+$ yarn storybook
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
+リポジトリのデプロイ先は[こちら](https://shuuuu10-01.github.io/useful-react-components)
