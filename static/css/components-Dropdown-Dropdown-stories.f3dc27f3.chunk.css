@@ -1,61 +1,108 @@
-.Button_button__wiIYs {
-  border: 2px solid transparent;
-  background-color: var(--background-white);
-  cursor: pointer;
-  font-weight: bold;
+.Dropdown_dropdown__QEFz6 {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0;
+  margin: 0;
 }
+
+.Dropdown_toggle__UuSWb {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  background-color: var(--font-white);
+}
+
+.Dropdown_menu__mxeOQ {
+  position: absolute;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 4px;
+  box-shadow: var(--border-gray) 0 1px 3px 0;
+}
+
+.Dropdown_upper__iQISh {
+  bottom: calc(100% + 0.5rem);
+}
+
+.Dropdown_lower__vFpJL {
+  top: calc(100% + 0.5rem);
+}
+
+/* storybook用css */
+.Dropdown_items__sUwUY {
+  width: 150px;
+}
+
+.Button_button__wiIYs {
+  font-weight: bold;
+  cursor: pointer;
+  background-color: var(--background-white);
+  border: 2px solid transparent;
+}
+
 .Button_button__wiIYs:disabled {
-  opacity: 0.6;
   pointer-events: none;
+  opacity: 0.6;
 }
 
 .Button_small__QdkfY {
-  font-size: 12px;
   padding: 0.25rem 0.75rem;
+  font-size: 12px;
   border-radius: 4px;
 }
 
 .Button_medium__wW44E {
-  font-size: 16px;
   padding: 0.5rem 1rem;
+  font-size: 16px;
   border-radius: 8px;
 }
 
 .Button_large__cwKfr {
-  font-size: 20px;
   padding: 0.5rem 3rem;
+  font-size: 20px;
   border-radius: 8px;
 }
 
 .Button_primary__XYgy- {
-  background-color: var(--background-blue);
   color: var(--background-white);
+  background-color: var(--background-blue);
 }
+
 .Button_primary__XYgy-:hover {
   background-color: var(--background-blue-hover1);
 }
+
 .Button_primary__XYgy-:active {
   background-color: var(--background-blue-active1);
 }
 
 .Button_secondary__QwN49 {
-  border-color: var(--background-blue);
   color: var(--background-blue);
+  border-color: var(--background-blue);
 }
+
 .Button_secondary__QwN49:hover {
   background-color: var(--background-blue-hover2);
 }
+
 .Button_secondary__QwN49:active {
   background-color: var(--background-blue-active2);
 }
 
 .Button_alert__R665X {
-  background-color: var(--background-red);
   color: var(--background-white);
+  background-color: var(--background-red);
 }
+
 .Button_alert__R665X:hover {
   background-color: var(--background-red-hover);
 }
+
 .Button_alert__R665X:active {
   background-color: var(--background-red-active);
 }
@@ -64,15 +111,15 @@
 .Button_buttonWrapper__B1mQY {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
   gap: 1rem;
+  align-items: flex-start;
 }
 
 .Button_hasIcon__H6w7J {
   display: flex;
-  align-items: center;
   gap: 4px;
+  align-items: center;
 }
 
 
-/*# sourceMappingURL=components-Button-Button-stories.57744acb.chunk.css.map*/
+/*# sourceMappingURL=components-Dropdown-Dropdown-stories.f3dc27f3.chunk.css.map*/

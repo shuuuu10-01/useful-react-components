@@ -1,101 +1,68 @@
-.Dropdown_dropdown__QEFz6 {
-  position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 0;
-  margin: 0;
-}
-
-.Dropdown_toggle__UuSWb {
-  cursor: pointer;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  background-color: var(--font-white);
-}
-
-.Dropdown_menu__mxeOQ {
-  position: absolute;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  border-radius: 4px;
-  box-shadow: var(--border-gray) 0 1px 3px 0;
-  padding: 10px 20px;
-}
-
-.Dropdown_upper__iQISh {
-  bottom: calc(100% + 0.5rem);
-}
-
-.Dropdown_lower__vFpJL {
-  top: calc(100% + 0.5rem);
-}
-
-/* storybook用css */
-.Dropdown_items__sUwUY {
-  width: 150px;
-}
-
 .Button_button__wiIYs {
-  border: 2px solid transparent;
-  background-color: var(--background-white);
-  cursor: pointer;
   font-weight: bold;
+  cursor: pointer;
+  background-color: var(--background-white);
+  border: 2px solid transparent;
 }
+
 .Button_button__wiIYs:disabled {
-  opacity: 0.6;
   pointer-events: none;
+  opacity: 0.6;
 }
 
 .Button_small__QdkfY {
-  font-size: 12px;
   padding: 0.25rem 0.75rem;
+  font-size: 12px;
   border-radius: 4px;
 }
 
 .Button_medium__wW44E {
-  font-size: 16px;
   padding: 0.5rem 1rem;
+  font-size: 16px;
   border-radius: 8px;
 }
 
 .Button_large__cwKfr {
-  font-size: 20px;
   padding: 0.5rem 3rem;
+  font-size: 20px;
   border-radius: 8px;
 }
 
 .Button_primary__XYgy- {
-  background-color: var(--background-blue);
   color: var(--background-white);
+  background-color: var(--background-blue);
 }
+
 .Button_primary__XYgy-:hover {
   background-color: var(--background-blue-hover1);
 }
+
 .Button_primary__XYgy-:active {
   background-color: var(--background-blue-active1);
 }
 
 .Button_secondary__QwN49 {
-  border-color: var(--background-blue);
   color: var(--background-blue);
+  border-color: var(--background-blue);
 }
+
 .Button_secondary__QwN49:hover {
   background-color: var(--background-blue-hover2);
 }
+
 .Button_secondary__QwN49:active {
   background-color: var(--background-blue-active2);
 }
 
 .Button_alert__R665X {
-  background-color: var(--background-red);
   color: var(--background-white);
+  background-color: var(--background-red);
 }
+
 .Button_alert__R665X:hover {
   background-color: var(--background-red-hover);
 }
+
 .Button_alert__R665X:active {
   background-color: var(--background-red-active);
 }
@@ -104,15 +71,59 @@
 .Button_buttonWrapper__B1mQY {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
   gap: 1rem;
+  align-items: flex-start;
 }
 
 .Button_hasIcon__H6w7J {
   display: flex;
-  align-items: center;
   gap: 4px;
+  align-items: center;
+}
+
+.Tab_header__RHatd {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-shadow: var(--background-gray) 0 -1px 0 0 inset;
+}
+
+.Tab_column__7J7ZE {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.Tab_button__KopLo {
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  font-weight: bold;
+  color: var(--font-gray);
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+}
+
+.Tab_active__uRYAU {
+  color: var(--background-blue);
+  background-color: var(--background-white);
+  border-bottom: 3px solid var(--background-blue);
+}
+
+.Tab_tabBody__EU19m {
+  padding: 0.25rem;
+}
+
+/* storybook用css */
+.Tab_hasIcon__\+3Qx7 {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
 }
 
 
-/*# sourceMappingURL=components-Dropdown-Dropdown-stories.d69ef7a6.chunk.css.map*/
+/*# sourceMappingURL=components-Tab-Tab-stories.3dddec31.chunk.css.map*/
