@@ -1,7 +1,8 @@
-import { forwardRef, InputHTMLAttributes, useState } from "react";
 import classNames from "classnames";
-import styles from "./InputText.module.css";
+import { forwardRef, InputHTMLAttributes, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+
+import styles from "./InputText.module.css";
 
 interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
   hasError?: boolean;

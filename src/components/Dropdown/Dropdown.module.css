@@ -6,17 +6,17 @@
 }
 
 .toggle {
-  cursor: pointer;
   width: fit-content;
+  cursor: pointer;
   background-color: var(--font-white);
 }
 
 .menu {
   position: absolute;
   width: fit-content;
+  padding: 10px 20px;
   border-radius: 4px;
   box-shadow: var(--border-gray) 0 1px 3px 0;
-  padding: 10px 20px;
 }
 
 .upper {

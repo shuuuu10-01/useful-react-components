@@ -1,5 +1,6 @@
-import Dropdown from "./Dropdown";
 import styles from "./Dropdown.module.css";
+
+import Dropdown from ".";
 
 export default {
   title: "Dropdown",

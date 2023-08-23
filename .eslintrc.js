@@ -26,11 +26,43 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint", "react"],
+  plugins: ["@typescript-eslint", "react", "import", "unused-imports"],
   rules: {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "warn",
+    "import/order": [
+      "error",
+      {
+        groups: [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type",
+        ],
+        "newlines-between": "always",
+        pathGroupsExcludedImportTypes: ["builtin"],
+        alphabetize: { order: "asc", caseInsensitive: true },
+        pathGroups: [
+          // ここに書いた順序で間に1行空行をあけつつ整頓される
+          { pattern: "src/utils/**", group: "internal", position: "before" },
+          {
+            pattern: "src/components/**",
+            group: "internal",
+            position: "before",
+          },
+          // styles
+          // 最後尾にしたいのでgroupをindex扱いにする
+          { pattern: "./**.module.css", group: "index", position: "before" },
+        ],
+      },
+    ],
   },
   settings: {
     react: {

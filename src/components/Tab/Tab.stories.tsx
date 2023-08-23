@@ -1,8 +1,10 @@
-import { Tab, TabItem } from "./Tab";
-import { FaInfo } from "react-icons/fa";
-import styles from "./Tab.module.css";
 import { useState } from "react";
-import Button from "../Button/Button";
+import { FaInfo } from "react-icons/fa";
+
+import Button from "src/components/Button";
+import { Tab, TabItem } from "src/components/Tab";
+
+import styles from "./Tab.module.css";
 
 export default {
   title: "Tab",

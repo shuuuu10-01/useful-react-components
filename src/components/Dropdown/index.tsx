@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import {
   Dispatch,
   FocusEvent,
@@ -8,10 +9,12 @@ import {
   useState,
   ComponentPropsWithoutRef,
 } from "react";
-import classNames from "classnames";
+
+import { useElementPosition } from "src/utils/useElementPosition";
+
+import Button from "src/components/Button";
+
 import styles from "./Dropdown.module.css";
-import { useElementPosition } from "../../utils/useElementPosition";
-import Button from "../Button/Button";
 
 const DropdownContext = createContext<{
   isOpen: boolean;

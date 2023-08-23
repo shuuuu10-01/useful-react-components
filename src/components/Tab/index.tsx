@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import {
   createContext,
   FC,
@@ -7,7 +8,7 @@ import {
   useContext,
   ReactElement,
 } from "react";
-import classNames from "classnames";
+
 import styles from "./Tab.module.css";
 
 type TabKey = string | number;

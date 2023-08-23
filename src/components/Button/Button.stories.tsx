@@ -1,25 +1,40 @@
-import styles from "./Button.module.css";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Button from "./Button";
 import { FaSistrix, FaInfo, FaTrash } from "react-icons/fa";
+
+import Button from "src/components/Button";
+
+import styles from "./Button.module.css";
 
 export default {
   title: "Button",
   component: Button,
-} as ComponentMeta<typeof Button>;
+};
 
-const Template: ComponentStory<typeof Button> = (args) => (
-  <Button {...args}>Sample</Button>
-);
+export const PrimaryButton = {
+  args: {
+    visual: "primary",
+    size: "medium",
+    disabled: false,
+    children: "Sample",
+  },
+};
 
-export const PrimaryButton = Template.bind({});
-PrimaryButton.args = { visual: "primary", size: "medium", disabled: false };
+export const SecondaryButton = {
+  args: {
+    visual: "secondary",
+    size: "medium",
+    disabled: false,
+    children: "Sample",
+  },
+};
 
-export const SecondaryButton = Template.bind({});
-SecondaryButton.args = { visual: "secondary", size: "medium", disabled: false };
-
-export const AlertButton = Template.bind({});
-AlertButton.args = { visual: "alert", size: "medium", disabled: false };
+export const AlertButton = {
+  args: {
+    visual: "alert",
+    size: "medium",
+    disabled: false,
+    children: "Sample",
+  },
+};
 
 export const Gallery = () => {
   return (

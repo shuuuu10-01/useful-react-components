@@ -1,7 +1,8 @@
 import { FC } from "react";
-import Button from "../../components/Button/Button";
-import styles from "./ButtonPage.module.css";
 import { FaSistrix, FaInfo, FaTrash } from "react-icons/fa";
+import Button from "src/components/Button";
+
+import styles from "./ButtonPage.module.css";
 
 const ButtonPage: FC = () => {
   return (
