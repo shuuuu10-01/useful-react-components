@@ -35,11 +35,7 @@ const Select: FC<Props> = ({ items, defaultValue, ref, ...props }) => {
   const toggleRef = useRef<HTMLButtonElement>(null);
 
   const handleToggle = () => {
-    setIsOpen((prev) => {
-      // トグルボタンを押下して閉じる場合はフォーカスを外す
-      if (prev) toggleRef.current?.blur();
-      return !prev;
-    });
+    setIsOpen((prev) => !prev);
   };
 
   const handleBlur = (event: FocusEvent<HTMLButtonElement>) => {
@@ -52,9 +48,9 @@ const Select: FC<Props> = ({ items, defaultValue, ref, ...props }) => {
   const handleSelect = (value: string) => {
     setSelected(value);
     // 選択肢を閉じない場合は以下のコメントアウトを外す
-    // toggleRef.current?.focus();
+    toggleRef.current?.focus();
     // 選択肢を閉じる場合は以下のコメントアウトを外す
-    setIsOpen(false);
+    // setIsOpen(false);
   };
 
   const itemsHeight = useMemo(() => {
