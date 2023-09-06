@@ -7,6 +7,9 @@
 .button {
   position: absolute;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 200px;
   height: 40px;
   padding: 0 20px;
@@ -15,6 +18,17 @@
   background-color: var(--background-blue);
   border: none;
   border-radius: 20px;
+}
+
+.buttonIcon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease-in-out;
+  transform: rotate(0);
+}
+
+.buttonIcon.open {
+  transform: rotate(180deg);
 }
 
 .items {
@@ -31,7 +45,7 @@
   transition: height 0.3s ease-in-out;
 }
 
-.open {
+.items.open {
   overflow: auto;
 }
 
@@ -39,6 +53,7 @@
   height: 40px;
   padding: 0 20px;
   color: var(--font-white);
+  text-align: start;
   cursor: pointer;
   background-color: var(--background-blue);
   border: none;

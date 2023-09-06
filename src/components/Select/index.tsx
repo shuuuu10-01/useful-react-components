@@ -7,6 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { IoIosArrowDown } from "react-icons/io";
 
 import styles from "./Select.module.css";
 
@@ -75,7 +76,10 @@ const Select: FC<Props> = ({ items, defaultValue, ref, ...props }) => {
         onClick={handleToggle}
         onBlur={handleBlur}
       >
-        {selectedValue}
+        <p>{selectedValue}</p>
+        <IoIosArrowDown
+          className={classNames(styles.buttonIcon, isOpen && styles.open)}
+        />
       </button>
       <div
         ref={itemsRef}
