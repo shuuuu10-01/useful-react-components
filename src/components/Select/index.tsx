@@ -11,19 +11,31 @@ import { IoIosArrowDown } from "react-icons/io";
 
 import styles from "./Select.module.css";
 
-type Props = ComponentPropsWithRef<"select"> & {
-  items: {
-    value: string;
-    label?: string;
-  }[];
+type Option = {
+  value: string;
+  label?: string;
 };
 
-const Select: FC<Props> = ({ items, defaultValue, ref, ...props }) => {
+type Props = ComponentPropsWithRef<"select"> & {
+  items: Option[];
+  upper?: boolean;
+  defaultValue?: string;
+  onSelect?: (value: Option) => void;
+};
+
+const Select: FC<Props> = ({
+  items,
+  upper = false,
+  onSelect,
+  defaultValue,
+  ref,
+  ...props
+}) => {
   const [selected, setSelected] = useState(defaultValue);
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const selectedValue = useMemo(() => {
+  const selectedLabel = useMemo(() => {
     const selectItem = items.find(({ value }) => value === selected);
     if (selectItem === undefined) {
       return "";
@@ -60,7 +72,13 @@ const Select: FC<Props> = ({ items, defaultValue, ref, ...props }) => {
 
   return (
     <div className={styles.wrapper}>
-      <select ref={ref} defaultValue={selected} {...props} hidden>
+      <select
+        ref={ref}
+        {...props}
+        hidden
+        value={selected}
+        onChange={(e) => setSelected(e.target.value)}
+      >
         <option value="">-</option>
         {items.map(({ value, label = value }) => {
           return (
@@ -76,16 +94,21 @@ const Select: FC<Props> = ({ items, defaultValue, ref, ...props }) => {
         onClick={handleToggle}
         onBlur={handleBlur}
       >
-        <p>{selectedValue}</p>
+        <p>{selectedLabel}</p>
         <IoIosArrowDown
           className={classNames(styles.buttonIcon, isOpen && styles.open)}
         />
       </button>
       <div
         ref={itemsRef}
-        className={classNames(styles.items, isOpen && styles.open)}
+        className={classNames(
+          styles.items,
+          upper ? styles.upper : styles.lower,
+          isOpen && styles.open
+        )}
         style={{ height: itemsHeight }}
       >
+        {isOpen && !upper && <div className={styles.lastItem} />}
         {items.map(({ value, label = value }) => {
           return (
             <button
@@ -97,7 +120,7 @@ const Select: FC<Props> = ({ items, defaultValue, ref, ...props }) => {
             </button>
           );
         })}
-        {isOpen && <div className={styles.lastItem}></div>}
+        {isOpen && upper && <div className={styles.lastItem} />}
       </div>
     </div>
   );

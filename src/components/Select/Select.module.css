@@ -33,7 +33,6 @@
 
 .items {
   position: absolute;
-  bottom: 0;
   z-index: 0;
   box-sizing: border-box;
   display: flex;
@@ -47,6 +46,14 @@
 
 .items.open {
   overflow: auto;
+}
+
+.items.upper {
+  bottom: 0;
+}
+
+.items.lower {
+  top: 0;
 }
 
 .item {
