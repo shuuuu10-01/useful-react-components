@@ -1,5 +1,12 @@
 import classNames from "classnames";
-import { ComponentPropsWithRef, FC, useMemo, useRef, useState } from "react";
+import {
+  ComponentPropsWithRef,
+  FC,
+  FocusEvent,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 import styles from "./Select.module.css";
 
@@ -25,6 +32,30 @@ const Select: FC<Props> = ({ items, defaultValue, ref, ...props }) => {
   }, [items, selected]);
 
   const itemsRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+
+  const handleToggle = () => {
+    setIsOpen((prev) => {
+      // トグルボタンを押下して閉じる場合はフォーカスを外す
+      if (prev) toggleRef.current?.blur();
+      return !prev;
+    });
+  };
+
+  const handleBlur = (event: FocusEvent<HTMLButtonElement>) => {
+    const relatedTarget = event.relatedTarget as HTMLElement;
+    if (itemsRef.current?.contains(relatedTarget)) return;
+
+    setIsOpen(false);
+  };
+
+  const handleSelect = (value: string) => {
+    setSelected(value);
+    // 選択肢を閉じない場合は以下のコメントアウトを外す
+    // toggleRef.current?.focus();
+    // 選択肢を閉じる場合は以下のコメントアウトを外す
+    setIsOpen(false);
+  };
 
   const itemsHeight = useMemo(() => {
     return isOpen ? `${items.length * 40 + 40}px` : "40px";
@@ -43,8 +74,10 @@ const Select: FC<Props> = ({ items, defaultValue, ref, ...props }) => {
         })}
       </select>
       <button
+        ref={toggleRef}
         className={styles.button}
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={handleToggle}
+        onBlur={handleBlur}
       >
         {selectedValue}
       </button>
@@ -58,9 +91,7 @@ const Select: FC<Props> = ({ items, defaultValue, ref, ...props }) => {
             <button
               key={value}
               className={styles.item}
-              onClick={() => {
-                setSelected(value);
-              }}
+              onClick={() => handleSelect(value)}
             >
               {label}
             </button>
