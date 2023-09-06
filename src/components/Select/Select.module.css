@@ -1,0 +1,48 @@
+.wrapper {
+  position: relative;
+  width: 200px;
+  height: 40px;
+}
+
+.button {
+  position: absolute;
+  z-index: 1;
+  width: 200px;
+  height: 40px;
+  padding: 0 20px;
+  color: var(--font-white);
+  cursor: pointer;
+  background-color: var(--background-blue);
+  border: none;
+  border-radius: 20px;
+}
+
+.items {
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  overflow: hidden;
+  background-color: var(--background-blue);
+  border-radius: 20px;
+  transition: height 0.3s ease-in-out;
+}
+
+.open {
+  overflow: auto;
+}
+
+.item {
+  height: 40px;
+  padding: 0 20px;
+  color: var(--font-white);
+  background-color: var(--background-blue);
+  border: none;
+}
+
+.lastItem {
+  height: 40px;
+}
