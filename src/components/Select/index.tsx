@@ -67,6 +67,7 @@ const Select: FC<Props> = ({
   };
 
   const itemsHeight = useMemo(() => {
+    // items.length * 40 + 40 は 選択肢の数 x 選択肢の高さ + トグルボタンの高さ
     return isOpen ? `${items.length * 40 + 40}px` : "40px";
   }, [isOpen]);
 
