@@ -20,7 +20,7 @@ type Props = ComponentPropsWithRef<"select"> & {
   items: Option[];
   upper?: boolean;
   defaultValue?: string;
-  onSelect?: (value: Option) => void;
+  onSelect?: (value: string) => void;
 };
 
 const Select: FC<Props> = ({
@@ -60,14 +60,16 @@ const Select: FC<Props> = ({
 
   const handleSelect = (value: string) => {
     setSelected(value);
-    // 選択肢を閉じない場合は以下のコメントアウトを外す
+    // 親に変更を伝播
+    onSelect?.(value);
+    // 選択後、選択肢を閉じない場合は以下のコメントアウトを外す
     toggleRef.current?.focus();
-    // 選択肢を閉じる場合は以下のコメントアウトを外す
+    // 選択後、選択肢を閉じる場合は以下のコメントアウトを外す
     // setIsOpen(false);
   };
 
   const itemsHeight = useMemo(() => {
-    // items.length * 40 + 40 は 選択肢の数 x 選択肢の高さ + トグルボタンの高さ
+    // isOpen ? 選択肢の数 x 選択肢の高さ + トグルボタンの高さ : トグルボタンの高さ
     return isOpen ? `${items.length * 40 + 40}px` : "40px";
   }, [isOpen]);
 
@@ -75,10 +77,10 @@ const Select: FC<Props> = ({
     <div className={styles.wrapper}>
       <select
         ref={ref}
-        {...props}
         hidden
         value={selected}
         onChange={(e) => setSelected(e.target.value)}
+        {...props}
       >
         <option value="">-</option>
         {items.map(({ value, label = value }) => {
