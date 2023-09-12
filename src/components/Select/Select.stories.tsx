@@ -1,3 +1,5 @@
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
+
 import Select from "src/components/Select";
 
 export default {
@@ -6,14 +8,55 @@ export default {
 };
 
 export const Sample = () => {
+  const {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<{ selected1: string; selected2: string }>({
+    defaultValues: { selected1: "test1", selected2: "test2" },
+  });
+
+  const submit: SubmitHandler<{ selected1: string; selected2: string }> = (
+    data
+  ) => {
+    console.log(data);
+  };
+
   return (
-    <div>
+    <form onSubmit={handleSubmit(submit)}>
       <div style={{ height: "200px" }}>上に選択肢だすよ</div>
-      <Select items={Items} upper defaultValue={"test1"} />
+      <Controller
+        {...register("selected1")}
+        control={control}
+        render={({ field }) => (
+          <Select
+            ref={field.ref}
+            name={field.name}
+            items={Items}
+            upper
+            defaultValue={field.value}
+            onSelect={field.onChange}
+          />
+        )}
+      />
       <br></br>
-      <Select items={Items} defaultValue={"test1"} />
+      <Controller
+        {...register("selected2")}
+        control={control}
+        render={({ field }) => (
+          <Select
+            ref={field.ref}
+            name={field.name}
+            items={Items}
+            defaultValue={field.value}
+            onSelect={field.onChange}
+          />
+        )}
+      />
       こっちは下に選択肢だすよ
-    </div>
+      <button>submit</button>
+    </form>
   );
 };
 
