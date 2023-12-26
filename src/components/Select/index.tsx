@@ -90,13 +90,7 @@ const Select = forwardRef<HTMLSelectElement, Props>(
             })}
           </div>
         </div>
-        <select
-          ref={ref}
-          hidden
-          value={selected}
-          onChange={(e) => setSelected(e.target.value)}
-          {...props}
-        >
+        <select ref={ref} hidden value={selected} {...props}>
           {options.map(({ value, label = value }) => {
             return (
               <option key={value} value={value}>
