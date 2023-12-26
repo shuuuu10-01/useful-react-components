@@ -50,10 +50,12 @@
 
 .options.upper {
   bottom: 0;
+  padding-bottom: 40px;
 }
 
 .options.lower {
   top: 0;
+  padding-top: 40px;
 }
 
 .option {
@@ -70,8 +72,4 @@
   .option:hover {
     background-color: var(--background-blue-hover1);
   }
-}
-
-.lastOption {
-  height: 40px;
 }
