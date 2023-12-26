@@ -1,0 +1,81 @@
+.wrapper {
+  position: relative;
+  width: 200px;
+  height: 40px;
+}
+
+.button {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  height: 40px;
+  padding: 0 20px;
+  color: var(--font-white);
+  cursor: pointer;
+  background-color: var(--background-blue);
+  border: none;
+  border-radius: 20px;
+}
+
+.buttonIcon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease-in-out;
+  transform: rotate(0);
+}
+
+.buttonIcon.open {
+  transform: rotate(180deg);
+}
+
+.options {
+  position: absolute;
+  z-index: 0;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-in-out;
+  width: 200px;
+  background-color: var(--background-blue);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.optionsWrapper {
+  overflow: hidden;
+  display: grid;
+  grid: 1;
+}
+
+.options.open {
+  grid-template-rows: 1fr;
+}
+
+.options.upper {
+  bottom: 0;
+  padding-bottom: 40px;
+}
+
+.options.lower {
+  top: 0;
+  padding-top: 40px;
+}
+
+.option {
+  height: 40px;
+  padding: 0 20px;
+  color: var(--font-white);
+  text-align: start;
+  cursor: pointer;
+  background-color: var(--background-blue);
+  border: none;
+}
+
+@media (hover: hover) {
+  .option:hover {
+    background-color: var(--background-blue-hover1);
+  }
+}
