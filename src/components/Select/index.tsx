@@ -75,7 +75,7 @@ const Select = forwardRef<HTMLSelectElement, Props>(
             isOpen && styles.open
           )}
         >
-          <div>
+          <div className={styles.optionsWrapper}>
             {options.map(({ value, label = value }) => {
               return (
                 <button
