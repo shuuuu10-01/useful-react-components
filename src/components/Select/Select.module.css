@@ -35,17 +35,23 @@
   position: absolute;
   z-index: 0;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-in-out;
   width: 200px;
-  overflow: hidden;
   background-color: var(--background-blue);
   border-radius: 20px;
-  transition: height 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.options > div {
+  overflow: hidden;
+  display: grid;
+  grid: 1;
 }
 
 .options.open {
-  overflow: auto;
+  grid-template-rows: 1fr;
 }
 
 .options.upper {

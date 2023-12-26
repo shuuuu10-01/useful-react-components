@@ -54,11 +54,6 @@ const Select = forwardRef<HTMLSelectElement, Props>(
       setIsOpen(false);
     };
 
-    const optionsHeight = useMemo(() => {
-      // isOpen ? 選択肢の数 * 選択肢の高さ + トグルボタンの高さ : トグルボタンの高さ
-      return isOpen ? `${options.length * 40 + 40}px` : "40px";
-    }, [isOpen]);
-
     return (
       <div className={styles.wrapper}>
         <button
@@ -79,20 +74,21 @@ const Select = forwardRef<HTMLSelectElement, Props>(
             upper ? styles.upper : styles.lower,
             isOpen && styles.open
           )}
-          style={{ height: optionsHeight }}
         >
-          {options.map(({ value, label = value }) => {
-            return (
-              <button
-                key={value}
-                className={styles.option}
-                onClick={() => handleSelect(value)}
-                type="button"
-              >
-                {label}
-              </button>
-            );
-          })}
+          <div>
+            {options.map(({ value, label = value }) => {
+              return (
+                <button
+                  key={value}
+                  className={styles.option}
+                  onClick={() => handleSelect(value)}
+                  type="button"
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
         </div>
         <select
           ref={ref}
