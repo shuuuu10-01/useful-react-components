@@ -17,28 +17,28 @@ type Option = {
 };
 
 type Props = ComponentPropsWithoutRef<"select"> & {
-  items: Option[];
+  options: Option[];
   upper?: boolean;
   defaultValue?: string;
   onSelect?: (value: string) => void;
 };
 
 const Select = forwardRef<HTMLSelectElement, Props>(
-  ({ items, upper = false, onSelect, defaultValue = "", ...props }, ref) => {
+  ({ options, upper = false, onSelect, defaultValue = "", ...props }, ref) => {
     const [selected, setSelected] = useState<string>(defaultValue);
 
     const [isOpen, setIsOpen] = useState(false);
 
     const selectedLabel = useMemo(() => {
-      const selectItem = items.find(({ value }) => value === selected);
+      const selectItem = options.find(({ value }) => value === selected);
       if (selectItem === undefined) {
         return "";
       } else {
         return selectItem?.label || selectItem.value;
       }
-    }, [items, selected]);
+    }, [options, selected]);
 
-    const itemsRef = useRef<HTMLDivElement>(null);
+    const optionsRef = useRef<HTMLDivElement>(null);
     const toggleRef = useRef<HTMLButtonElement>(null);
 
     const handleToggle = () => {
@@ -47,7 +47,7 @@ const Select = forwardRef<HTMLSelectElement, Props>(
 
     const handleBlur = (event: FocusEvent<HTMLButtonElement>) => {
       const relatedTarget = event.relatedTarget as HTMLElement;
-      if (itemsRef.current?.contains(relatedTarget)) return;
+      if (optionsRef.current?.contains(relatedTarget)) return;
 
       setIsOpen(false);
     };
@@ -62,9 +62,9 @@ const Select = forwardRef<HTMLSelectElement, Props>(
       setIsOpen(false);
     };
 
-    const itemsHeight = useMemo(() => {
+    const optionsHeight = useMemo(() => {
       // isOpen ? 選択肢の数 x 選択肢の高さ + トグルボタンの高さ : トグルボタンの高さ
-      return isOpen ? `${items.length * 40 + 40}px` : "40px";
+      return isOpen ? `${options.length * 40 + 40}px` : "40px";
     }, [isOpen]);
 
     return (
@@ -76,7 +76,7 @@ const Select = forwardRef<HTMLSelectElement, Props>(
           onChange={(e) => setSelected(e.target.value)}
           {...props}
         >
-          {items.map(({ value, label = value }) => {
+          {options.map(({ value, label = value }) => {
             return (
               <option key={value} value={value}>
                 {label}
@@ -97,20 +97,20 @@ const Select = forwardRef<HTMLSelectElement, Props>(
           />
         </button>
         <div
-          ref={itemsRef}
+          ref={optionsRef}
           className={classNames(
-            styles.items,
+            styles.options,
             upper ? styles.upper : styles.lower,
             isOpen && styles.open
           )}
-          style={{ height: itemsHeight }}
+          style={{ height: optionsHeight }}
         >
-          {isOpen && !upper && <div className={styles.lastItem} />}
-          {items.map(({ value, label = value }) => {
+          {isOpen && !upper && <div className={styles.lastOption} />}
+          {options.map(({ value, label = value }) => {
             return (
               <button
                 key={value}
-                className={styles.item}
+                className={styles.option}
                 onClick={() => handleSelect(value)}
                 type="button"
               >

@@ -33,7 +33,7 @@ export const Sample = () => {
           <Select
             ref={field.ref}
             name={field.name}
-            items={Items}
+            options={Options}
             upper
             defaultValue={field.value}
             onSelect={field.onChange}
@@ -48,7 +48,7 @@ export const Sample = () => {
           <Select
             ref={field.ref}
             name={field.name}
-            items={Items}
+            options={Options}
             defaultValue={field.value}
             onSelect={field.onChange}
           />
@@ -60,7 +60,7 @@ export const Sample = () => {
   );
 };
 
-const Items = [
+const Options = [
   {
     value: "test1",
     label: "test1",

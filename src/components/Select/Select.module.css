@@ -31,7 +31,7 @@
   transform: rotate(180deg);
 }
 
-.items {
+.options {
   position: absolute;
   z-index: 0;
   box-sizing: border-box;
@@ -44,19 +44,19 @@
   transition: height 0.3s ease-in-out;
 }
 
-.items.open {
+.options.open {
   overflow: auto;
 }
 
-.items.upper {
+.options.upper {
   bottom: 0;
 }
 
-.items.lower {
+.options.lower {
   top: 0;
 }
 
-.item {
+.option {
   height: 40px;
   padding: 0 20px;
   color: var(--font-white);
@@ -67,11 +67,11 @@
 }
 
 @media (hover: hover) {
-  .item:hover {
+  .option:hover {
     background-color: var(--background-blue-hover1);
   }
 }
 
-.lastItem {
+.lastOption {
   height: 40px;
 }
